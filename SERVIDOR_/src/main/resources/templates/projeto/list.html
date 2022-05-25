@@ -33,10 +33,10 @@
               <a class="nav-link active" href="/projeto/list">Projeto</a>
             </li>
             <li class="nav-item-2">
-              <a class="nav-fonte" href="./list">Funcionários</a>
+              <a class="nav-link" href="/funcionario/list">Funcionários</a>
             </li>
             <li class="nav-item-3">
-              <a class="nav-fonte" href="../sobre">Sobre</a>
+              <a class="nav-link" href="/sobre">Sobre</a>
             </li>
           </ul>
         </div>
@@ -48,24 +48,28 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Telefone</th>
-            <th scope="col" colspan="2">Email</th>
+            <th scope="col">Data Inicial</th>
+            <th scope="col">Data final</th>
+            <th scope="col">Status</th>
+            <th scope="col">Orçamento</th>
+
+            <th scope="col" colspan="2"></th>
             <th scope="col"><a class="add" href="./add"><i class="fi fi-ss-add"></i></a></th>
             
             
           </tr>
         </thead>
         <tbody>
-          <tr th:each="funcionario:${funcionarios}">
+          <tr th:each="projeto:${projetos}">
 
-            <td scope="row" th:text="${funcionario.id}"></td>
-            <td th:text="${funcionario.nome}"></td>
-            <td th:text="${funcionario.cpf}"></td>
-            <td th:text="${funcionario.telefone}"></td>
-            <td th:text="${funcionario.email}"></td>
-            <td scope="col"><a class="a-edit" th:href="@{'./edit/' + ${funcionario.id}}"><i class="fi fi-sr-edit"></i></a></td>
-            <td scope="col"><a class="a-delete" th:onclick="|showModalDeletar('funcionario', ${funcionario.id})|"><i class="fi fi-bs-trash"></i></a></td>
+            <td scope="row" th:text="${projeto.id}"></td>
+            <td th:text="${projeto.nome}"></td>
+            <td th:text="${projeto.datainicial}"></td>
+            <td th:text="${projeto.datafinal}"></td>
+            <td th:text="${projeto.status}"></td>
+            <td th:text="${projeto.orcamento}"></td>
+            <td scope="col"><a class="a-edit" th:href="@{'./edit/' + ${projeto.id}}"><i class="fi fi-sr-edit"></i></a></td>
+            <td scope="col"><a class="a-delete" th:onclick="|showModalDeletar('projeto', ${projeto.id})|"><i class="fi fi-bs-trash"></i></a></td>
 
           </tr>
         </tbody>
