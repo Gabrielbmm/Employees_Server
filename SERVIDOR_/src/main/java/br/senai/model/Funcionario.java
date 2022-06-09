@@ -3,6 +3,7 @@ package br.senai.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity (name = "funcionario")
@@ -21,6 +22,8 @@ public class Funcionario {
     @Size(max = 30)
     private String telefone;
 
+    @ManyToMany(mappedBy = "funcionarios")
+    private List<Projeto> projetos;
     //getter and setter
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
@@ -32,6 +35,14 @@ public class Funcionario {
     public void setEmail(String email) {this.email = email;}
     public String getTelefone() {return telefone;}
     public void setTelefone(String telefone) {this.telefone = telefone;}
+
+    public List<Projeto> getProjetos() {
+        return projetos;
+    }
+
+    public void setProjetos(List<Projeto> projetos) {
+        this.projetos = projetos;
+    }
 
     @Override
     public String toString() {
